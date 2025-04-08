@@ -1,6 +1,27 @@
-# Gmp
+# Offline Map with Angular
 
+[![Angular](https://img.shields.io/badge/Angular-v16+-red.svg)](https://angular.io/)
+[![MapLibre](https://img.shields.io/badge/MapLibre_GL-v5.3.0-blue.svg)](https://maplibre.org/)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
+A solution for displaying offline maps in Angular applications using MBTiles format and Leaflet mapping library.
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.0.4.
+
+## Features
+
+- 🗺️ Display offline maps using MBTiles files
+- ⚡ No external tile server required
+- 📦 Self-contained solution using SQL.js for MBTiles access
+- 🖥️ Custom Leaflet tile layer implementation
+- 📱 Responsive design for all device sizes
+
+## Prerequisites
+
+Before you begin, ensure you have met the following requirements:
+
+- Node.js (v18+ recommended)
+- npm (v9+ recommended) or yarn
+- Angular CLI (v19+)
 
 ## Development server
 
