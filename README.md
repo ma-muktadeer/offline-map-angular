@@ -1,6 +1,6 @@
 # Offline Map with Angular
 
-[![Angular](https://img.shields.io/badge/Angular-v16+-red.svg)](https://angular.io/)
+[![Angular](https://img.shields.io/badge/Angular-v19+-red.svg)](https://angular.io/)
 [![MapLibre](https://img.shields.io/badge/MapLibre_GL-v5.3.0-blue.svg)](https://maplibre.org/)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 
