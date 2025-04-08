@@ -44,5 +44,5 @@ Thumbs.db
 .angular/*
 # .vscode/tasks.json
 
-src/assets/tiles/pbf/*
+src/assets/tiles/*
 
