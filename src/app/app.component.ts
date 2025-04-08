@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
         sources: {
           'vector-tiles': {
             type: 'vector',
-            tiles: ['http://localhost:8081/{z}/{x}/{y}.pbf']
+            tiles: ['http://localhost:8080/{z}/{x}/{y}.pbf']
           }
         },
         layers: 
