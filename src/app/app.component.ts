@@ -9,7 +9,7 @@ import * as maplibre from 'maplibre-gl';
   styleUrl: './app.component.scss'
 })
 export class AppComponent implements OnInit {
-  title = 'gmp';
+  title = 'offline-map-angular';
 
   ngOnInit(): void {
     this.initMap();
