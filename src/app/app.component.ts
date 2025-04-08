@@ -26,466 +26,18 @@ export class AppComponent {
           sources: {
             'vector-tiles': {
               type: 'vector',
-              tiles: ['http://localhost:8080/{z}/{x}/{y}.pbf']
+              tiles: ['http://localhost:8081/{z}/{x}/{y}.pbf'],
+              minzoom: 0,
+              maxzoom: 14,
             }
           },
           layers:
-
-
-
-            // ldskj
-            // [
-            //   {
-            //     'id': 'background',
-            //     'type': 'background',
-            //     'paint': {
-            //       'background-color': '#ffffff'
-            //     }
-            //   },
-            //   {
-            //     'id': 'waterway',
-            //     'type': 'fill',
-            //     'source': 'vector-tiles',
-            //     'source-layer': 'waterway',
-            //     'paint': {
-            //       "fill-color": "hsl(205, 56%, 73%)",
-            //     }
-            //   },
-            //   {
-            //     'id': 'water',
-            //     'type': 'fill',
-            //     'source': 'vector-tiles',
-            //     'source-layer': 'water',
-            //     'paint': {
-            //       "fill-color": "hsl(205, 56%, 73%)"
-            //     },
-            //   },
-            //   {
-            //     filter: [
-            //       "==",
-            //       "$type",
-            //       "Point"
-            //     ],
-            //     id: "housenumber",
-            //     layout: {
-            //       "text-field": "{housenumber}",
-            //       "text-font": [
-            //         "Noto Sans Regular"
-            //       ],
-            //       "text-size": 10
-            //     },
-            //     minzoom: 17,
-            //     "paint": {
-            //       "text-color": "rgba(212, 177, 146, 1)"
-            //     },
-            //     source: "vector-tiles",
-            //     "source-layer": "housenumber",
-            //     type: "symbol"
-            //   },
-            //   {
-            //     "filter": [
-            //       "all",
-            //       [
-            //         "==",
-            //         "$type",
-            //         "Point"
-            //       ],
-            //       [
-            //         "==",
-            //         "rank",
-            //         1]
-            //     ],
-            //     "id": "poi_label",
-            //     "layout": {
-            //       "icon-size": 1,
-            //       "text-anchor": "top",
-            //       "text-field": "{name}",
-            //       "text-font": [
-            //         "Noto Sans Regular"
-            //       ],
-            //       "text-max-width": 8,
-            //       "text-offset": [0, 0.5],
-            //       "text-size": 11
-            //     },
-            //     "minzoom": 14,
-            //     "paint": {
-            //       "text-color": "#666",
-            //       "text-halo-blur": 1,
-            //       "text-halo-color": "rgba(255,255,255,0.75)",
-            //       "text-halo-width": 1
-            //     },
-            //     "source": "vector-tiles",
-            //     "source-layer": "poi",
-            //     "type": "symbol"
-            //   },
-            //   {
-            //     "filter": [
-            //       "all",
-            //       [
-            //         "has",
-            //         "iata"
-            //       ]
-            //     ],
-            //     "id": "airport-label",
-            //     "layout": {
-            //       "icon-size": 1,
-            //       "text-anchor": "top",
-            //       "text-field": "{name}",
-            //       "text-font": [
-            //         "Noto Sans Regular"
-            //       ],
-            //       "text-max-width": 8,
-            //       "text-offset": [0, 0.5],
-            //       "text-size": 11
-            //     },
-            //     "minzoom": 10,
-            //     "paint": {
-            //       "text-color": "#666",
-            //       "text-halo-blur": 1,
-            //       "text-halo-color": "rgba(255,255,255,0.75)",
-            //       "text-halo-width": 1
-            //     },
-            //     "source": "vector-tiles",
-            //     "source-layer": "aerodrome_label",
-            //     "type": "symbol"
-            //   },
-            //   {
-            //     "filter": [
-            //       "==",
-            //       "$type",
-            //       "LineString"
-            //     ],
-            //     "id": "road_major_label",
-            //     "layout": {
-            //       "symbol-placement": "line",
-            //       "text-field": "{name}",
-            //       "text-font": [
-            //         "Noto Sans Regular"
-            //       ],
-            //       "text-letter-spacing": 0.1,
-            //       "text-rotation-alignment": "map",
-            //       "text-size": 14,
-            //       "text-transform": "uppercase"
-            //     },
-            //     "paint": {
-            //       "text-color": "#000",
-            //       "text-halo-color": "hsl(0, 0%, 100%)",
-            //       "text-halo-width": 2
-            //     },
-            //     "source": "vector-tiles",
-            //     "source-layer": "transportation_name",
-            //     "type": "symbol"
-            //   },
-            //   {
-            //     "filter": [
-            //       "all",
-            //       [
-            //         "==",
-            //         "$type",
-            //         "Point"
-            //       ],
-            //       [
-            //         "!in",
-            //         "class",
-            //         "city",
-            //         "state",
-            //         "country",
-            //         "continent"
-            //       ]
-            //     ],
-            //     "id": "place_label_other",
-            //     "layout": {
-            //       "text-anchor": "center",
-            //       "text-field": "{name}",
-            //       "text-font": [
-            //         "Noto Sans Regular"
-            //       ],
-            //       "text-max-width": 6,
-            //       "text-size": 14
-            //     },
-            //     "minzoom": 8,
-            //     "paint": {
-            //       "text-color": "hsl(0, 0%, 25%)",
-            //       "text-halo-blur": 0,
-            //       "text-halo-color": "hsl(0, 0%, 100%)",
-            //       "text-halo-width": 2
-            //     },
-            //     "source": "vector-tiles",
-            //     "source-layer": "place",
-            //     "type": "symbol"
-            //   },
-            //   {
-            //     "filter": [
-            //       "all",
-            //       [
-            //         "==",
-            //         "$type",
-            //         "Point"
-            //       ],
-            //       [
-            //         "==",
-            //         "class",
-            //         "city"
-            //       ]
-            //     ],
-            //     "id": "place_label_city",
-            //     "layout": {
-            //       "text-field": "{name}",
-            //       "text-font": [
-            //         "Noto Sans Regular"
-            //       ],
-            //       "text-max-width": 10,
-            //       "text-size": 16
-            //     },
-            //     "maxzoom": 16,
-            //     "paint": {
-            //       "text-color": "hsl(0, 0%, 0%)",
-            //       "text-halo-blur": 0,
-            //       "text-halo-color": "hsla(0, 0%, 100%, 0.75)",
-            //       "text-halo-width": 2
-            //     },
-            //     "source": "vector-tiles",
-            //     "source-layer": "place",
-            //     "type": "symbol"
-            //   },
-            //   {
-            //     "filter": [
-            //       "all",
-            //       [
-            //         "==",
-            //         "$type",
-            //         "Point"
-            //       ],
-            //       [
-            //         "==",
-            //         "class",
-            //         "country"
-            //       ],
-            //       [
-            //         "!has",
-            //         "iso_a2"
-            //       ]
-            //     ],
-            //     "id": "country_label-other",
-            //     "layout": {
-            //       "text-field": "{name:latin}",
-            //       "text-font": [
-            //         "Noto Sans Regular"
-            //       ],
-            //       "text-max-width": 10,
-            //       "text-size": 12
-            //     },
-            //     "maxzoom": 12,
-            //     "paint": {
-            //       "text-color": "hsl(0, 0%, 13%)",
-            //       "text-halo-blur": 0,
-            //       "text-halo-color": "rgba(255,255,255,0.75)",
-            //       "text-halo-width": 2
-            //     },
-            //     "source": "vector-tiles",
-            //     "source-layer": "place",
-            //     "type": "symbol"
-            //   },
-            //   {
-            //     "filter": [
-            //       "all",
-            //       [
-            //         "==",
-            //         "$type",
-            //         "Point"
-            //       ],
-            //       [
-            //         "==",
-            //         "class",
-            //         "country"
-            //       ],
-            //       [
-            //         "has",
-            //         "iso_a2"
-            //       ]
-            //     ],
-            //     "id": "country_label",
-            //     "layout": {
-            //       "text-field": "{name:latin}",
-            //       "text-font": [
-            //         "Noto Sans Regular"
-            //       ],
-            //       "text-max-width": 10,
-            //       "text-size": 12
-            //     },
-            //     "maxzoom": 12,
-            //     "paint": {
-            //       "text-color": "hsl(0, 0%, 13%)",
-            //       "text-halo-blur": 0,
-            //       "text-halo-color": "rgba(255,255,255,0.75)",
-            //       "text-halo-width": 2
-            //     },
-            //     "source": "vector-tiles",
-            //     "source-layer": "place",
-            //     "type": "symbol"
-            //   },
-            //   {
-            //     id: 'label-layer',
-            //     type: 'symbol',
-            //     source: 'vector-tiles',
-            //     'source-layer': 'place',
-            //     layout: {
-            //       'text-field': ['get', 'name'],
-            //       'text-font': ['Open Sans Regular', 'Arial Unicode MS Regular'],
-            //       'text-size': 13
-            //     },
-            //     paint: {
-            //       'text-color': '#333',
-            //       'text-halo-color': '#fff',
-            //       'text-halo-width': 1
-            //     }
-            //   },
-            //   {
-            //     'id': 'landcover-glacier',
-            //     'type': 'fill',
-            //     'source': 'vector-tiles',
-            //     'source-layer': 'landcover',
-            //     'paint': {
-            //       "fill-color": "hsl(47, 22%, 94%)",
-            //     }
-            //   },
-            //   {
-            //     'id': 'landcover_sand',
-            //     'type': 'fill',
-            //     'source': 'vector-tiles',
-            //     'source-layer': 'landcover',
-            //     'paint': {
-            //       "fill-antialias": false,
-            //       "fill-color": "rgba(232, 214, 38, 1)",
-            //     }
-            //   },
-            //   {
-            //     'id': 'landuse_overlay_national_park',
-            //     'type': 'fill',
-            //     'source': 'vector-tiles',
-            //     'source-layer': 'landcover',
-            //     'paint': {
-            //       "fill-color": "#E1EBB0",
-            //     }
-            //   },
-            //   {
-            //     'id': 'landcover_grass',
-            //     'type': 'fill',
-            //     'source': 'vector-tiles',
-            //     'source-layer': 'landcover',
-            //     'paint': {
-            //       "fill-color": "hsl(82, 46%, 72%)",
-            //       "fill-opacity": 0.45
-            //     }
-            //   },
-            //   {
-            //     'id': 'landcover_wood',
-            //     'type': 'fill',
-            //     'source': 'vector-tiles',
-            //     'source-layer': 'landcover',
-            //     'paint': {
-            //       "fill-color": "hsl(82, 46%, 72%)",
-            //       "fill-opacity": 0.4
-            //     }
-            //   },
-            //   {
-            //     'id': 'landcover-ice-shelf',
-            //     'type': 'fill',
-            //     'source': 'vector-tiles',
-            //     'source-layer': 'landcover',
-            //     'paint': {
-            //       "fill-color": "hsl(47, 26%, 88%)",
-            //       "fill-opacity": 0.8
-            //     }
-            //   },
-
-            //   {
-            //     "filter": [
-            //       "all",
-            //       [
-            //         "==",
-            //         "$type",
-            //         "Polygon"
-            //       ],
-            //       [
-            //         "in",
-            //         "class",
-            //         "residential",
-            //         "suburb",
-            //         "neighbourhood"
-            //       ]
-            //     ],
-            //     "id": "landuse-residential",
-            //     "paint": {
-            //       "fill-color": "hsl(47, 13%, 86%)",
-            //       "fill-opacity": 0.7
-            //     },
-            //     "source": "vector-tiles",
-            //     "source-layer": "landuse",
-            //     "type": "fill"
-            //   },
-            //   {
-            //     "filter": [
-            //       "==",
-            //       "class",
-            //       "agriculture"
-            //     ],
-            //     "id": "landuse",
-            //     "paint": {
-            //       "fill-color": "#eae0d0"
-            //     },
-            //     "source": "vector-tiles",
-            //     "source-layer": "landuse",
-            //     "type": "fill"
-            //   },
-            //   {
-            //     "filter": [
-            //       "all",
-            //       [
-            //         "\u003C=",
-            //         "admin_level",
-            //         2],
-            //       [
-            //         "==",
-            //         "$type",
-            //         "LineString"
-            //       ]
-            //     ],
-            //     "id": "admin_country",
-            //     "layout": {
-            //       "line-cap": "round",
-            //       "line-join": "round"
-            //     },
-            //     "paint": {
-            //       "line-color": "hsl(0, 0%, 60%)",
-            //       "line-width": 2.0
-            //     },
-            //     "source": "vector-tiles",
-            //     "source-layer": "boundary",
-            //     "type": "line"
-            //   },
-            //   {
-            //     "filter": [
-            //       "in",
-            //       "admin_level",
-            //       4, 6, 8],
-            //     "id": "admin_sub",
-            //     "paint": {
-            //       "line-color": "hsla(0, 0%, 60%, 0.5)",
-            //       "line-dasharray": [2, 1]
-            //     },
-            //     "source": "vector-tiles",
-            //     "source-layer": "boundary",
-            //     "type": "line"
-            //   },
-            // ]
-            /////////////////////////////////////////////////////////////
             [
               {
                 "id": "background",
                 "type": "background",
                 "paint": {
-                  "background-color": "#f8f9fa"
+                  "background-color": "hsl(47, 26%, 88%)"
                 }
               },
               {
@@ -592,7 +144,7 @@ export class AppComponent {
                     "primary", "hsl(60, 80%, 60%)",
                     "secondary", "hsl(90, 80%, 60%)",
                     "tertiary", "hsl(120, 80%, 60%)",
-                    "hsl(0, 0%, 80%)"
+                    "hsl(0, 0%, 80%)" // Default color
                   ],
                   "line-width": [
                     "match",
@@ -602,19 +154,18 @@ export class AppComponent {
                     "primary", 0.8,
                     "secondary", 0.9,
                     "tertiary", 1,
-                    0.6
+                    0.6 // Default width
                   ],
                   "line-opacity": [
                     "interpolate",
                     ["linear"],
                     ["zoom"],
-                    6, 0.3,
+                    6, 0.3,   // Start fading in at zoom 6
                     7, 0.6,
-                    8, 1
+                    8, 1     // Fully opaque from zoom 8 onwards
                   ]
                 },
-                "minzoom": 7,
-                "maxzoom": 14
+                "minzoom": 6
               },
               {
                 "id": "building",
@@ -622,7 +173,7 @@ export class AppComponent {
                 "source": "vector-tiles",
                 "source-layer": "building",
                 "paint": {
-                  "fill-color": "hsl(30, 20%, 80%)",
+                  "fill-color": "hsl(30, 7.50%, 58.00%)",
                   "fill-opacity": 0.7
                 }
               },
@@ -659,27 +210,155 @@ export class AppComponent {
                 }
               },
               {
-                "id": "place",
+                "id": "place-labels", // More descriptive ID
                 "type": "symbol",
                 "source": "vector-tiles",
                 "source-layer": "place",
+                "minzoom": 0, // Start showing labels from zoom 0
                 "layout": {
                   "text-field": ["get", "name"],
                   "text-font": ["Noto Sans Bold"],
                   "text-size": [
-                    "match",
-                    ["get", "class"],
-                    "city", 14,
-                    "town", 12,
-                    "village", 10,
-                    8
-                  ]
+                    "interpolate",
+                    ["linear"],
+                    ["zoom"],
+                    // Zoom 0-2: Show only Continents
+                    0, ["match", ["get", "class"], "continent", 10, 0],
+                    2, ["match", ["get", "class"], "continent", 14, 0],
+
+                    // Zoom 2-4: Fade in Countries, grow Continents slightly
+                    3, ["match", ["get", "class"],
+                      "continent", 15,
+                      "country", 10, // Start showing countries
+                      0
+                    ],
+                    4, ["match", ["get", "class"],
+                      "continent", 16,
+                      "country", 12, // Countries more prominent
+                      "ocean", 10,   // Show major oceans/seas
+                      "sea", 10,
+                      0
+                    ],
+
+                    // Zoom 4-6: Fade in States/Provinces, Major Cities. Increase Country size.
+                    5, ["match", ["get", "class"],
+                      "country", 16,
+                      "state", 10,   // Assuming 'state' class exists for provinces/states
+                      "city", 9,     // Start showing major cities (rank 1-3?) - *Filter might be needed*
+                      "ocean", 12,
+                      "sea", 12,
+                      0
+                    ],
+                    6, ["match", ["get", "class"],
+                      "country", 12,
+                      "state", 12,
+                      "city", 11,     // Cities grow
+                      "ocean", 14,
+                      "sea", 14,
+                      "forest", 9,   // Show large forests/parks
+                      0
+                    ],
+
+                    // Zoom 6-9: Cities become primary, fade in Towns. Keep State/Country for context.
+                    7, ["match", ["get", "class"],
+                      // "country", 14,   // Slightly smaller for context
+                      "state", 13,
+                      "city", 13,
+                      "town", 9,      // Start showing towns
+                      "ocean", 14,    // Keep water bodies visible
+                      "sea", 14,
+                      "forest", 10,
+                      0
+                    ],
+                    9, ["match", ["get", "class"],
+                      // "country", 12,   // Smaller context
+                      "state", 12,
+                      "city", 15,     // Cities prominent
+                      "town", 11,
+                      "village", 9,   // Start showing villages
+                      "lake", 10,     // Show lakes
+                      "forest", 11,
+                      0
+                    ],
+
+                    // Zoom 9-12: Towns and Villages grow. City still prominent.
+                    10, ["match", ["get", "class"],
+                      // Country/State could be hidden here if too cluttered, or kept small
+                      "city", 16,
+                      "town", 13,
+                      "village", 11,
+                      "lake", 12,
+                      "forest", 12,
+                      // Consider adding 'suburb' or 'neighbourhood' if available
+                      0
+                    ],
+                    12, ["match", ["get", "class"],
+                      "city", 13,
+                      "town", 15,
+                      "village", 13,
+                      "suburb", 10,       // Example
+                      "neighbourhood", 10,// Example
+                      "lake", 13,
+                      "forest", 13,
+                      "house", 8,
+                      0
+                    ],
+
+                    // Zoom 12+: Focus on local labels. Fade out larger regions? (Optional)
+                    14, ["match", ["get", "class"],
+                      // "city", 18, // Keep city large if desired
+                      "town", 16,
+                      "village", 14,
+                      "suburb", 12,
+                      "neighbourhood", 12,
+                      "hamlet", 11,      // Example
+                      "poi_landmark", 10, // Example for POIs
+                      "address", 9,       // Start showing addresses/buildings late
+                      "Building", 9,
+                      "house", 10,
+                      "lake", 14,         // Keep significant local features
+                      "forest", 14,
+                      0
+                    ],
+
+                  ],
+                  "text-padding": 2, // Adds padding around labels, helps avoid collision
+                  "text-allow-overlap": false, // Basic collision detection
+                  "text-ignore-placement": false,
+                  // Optional: Improve placement for point labels
+                  // "text-anchor": "top",
+                  // "text-offset": [0, 0.8], // Offset slightly below the point feature
+                  // Optional: Use different fonts for different classes if desired
+                  // "text-font": [
+                  //   "match", ["get", "class"],
+                  //   "country", ["Noto Sans Bold"],
+                  //   "city", ["Noto Sans Medium"], // Example
+                  //   ["Noto Sans Regular"] // Default
+                  // ],
+                  // Optional: Prioritize labels based on class or rank
+                  // "symbol-sort-key": [
+                  //   "match", ["get", "class"],
+                  //   "continent", 10,
+                  //   "country", 9,
+                  //   "state", 8,
+                  //   "city", 7,
+                  //   "town", 6,
+                  //   "village", 5,
+                  //   0 // Default priority
+                  // ]
                 },
                 "paint": {
-                  "text-color": "hsl(0, 0%, 20%)",
-                  "text-halo-color": "hsl(0, 0%, 100%)",
-                  "text-halo-width": 1.5
-                }
+                  "text-color": "hsl(0, 0%, 20%)", // #333333
+                  "text-halo-color": "hsl(0, 0%, 100%)", // White halo
+                  "text-halo-width": 1.5,
+                  "text-halo-blur": 0.5 // Slightly soften the halo edge
+                },
+                // Optional: Add filters if needed, e.g., only show top-ranked cities initially
+                // "filter": [
+                //  "match", ["get", "class"],
+                //  "city", ["<=", ["get", "rank"], 3], // Example: Only show cities with rank 1, 2, or 3 at lower zooms
+                //  true // Show all other classes
+                //]
               },
               {
                 "id": "poi",
@@ -722,17 +401,10 @@ export class AppComponent {
                   "text-halo-width": 1.5
                 }
               }
-            ]
-          ,
-
-
-
-          // },
-
-
+            ],
           // style: 'assets/styles/style-mps.json',
           center: [90.3563, 23.6850],
-          zoom: 5
+          zoom: 5,
         }
       });
   }
