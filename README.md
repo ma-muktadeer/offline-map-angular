@@ -57,3 +57,113 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 ## Additional Resources
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+
+## Details Information
+# Offline Map Angular
+
+This project provides a simple way to visualize offline vector map tiles using Angular and the Planetiler demo viewer. The goal is to support offline map rendering by loading a local `.mbtiles` file into the browser.
+
+## 🔧 Features
+
+- 📦 Local `.mbtiles` support
+- 🧭 Vector tile rendering with OpenMapTiles schema
+- 🗺️ Works with Planetiler demo viewer
+- 🌐 Runs in your local environment using Angular
+
+## 📁 Project Structure
+
+```
+offline-map-angular/
+├── src/
+│   ├── app/
+│   ├── assets/
+│   └── index.html
+├── .mbtiles (not included)
+├── angular.json
+├── README.md
+└── ...
+```
+
+## 🚀 Getting Started
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/ma-muktadeer/offline-map-angular.git
+cd offline-map-angular
+```
+
+### 2. Install Dependencies
+```bash
+npm install
+```
+
+### 3. Download .pbf file and save to the assets as
+```
+offline-map-angular/
+├── src/
+│   ├── app/
+│   ├── assets/
+|   |  ├── tiles
+|   |     └── pbf
+|   |        └── 0
+|   |        |  └── 0
+|   |        |    └── 0.pbf
+|   |        └── 1
+|   |          └── 0
+|   |            ├── 0.pbf
+|   |            └── ...
+│   └── index.html
+├── .mbtiles (not included)
+└── ...
+```
+
+### 4. Run JS
+```bash
+node tile-server.js
+```
+
+### 5. Serve the App
+```bash
+ng serve -o
+```
+
+Open your browser and go to `http://localhost:4200`
+
+## 🧪 How to Use
+
+### Option 1: Using OnTheGoMap Planetiler Demo Viewer
+
+1. Go to: [https://onthegomap.github.io/planetiler-demo/](https://onthegomap.github.io/planetiler-demo/)
+2. Press `Ctrl + O` or `Cmd + O` to open the file picker.
+3. Select your `.mbtiles` file.
+
+The map will begin rendering the vector tiles directly from your file.
+
+### Option 2: Integrate Viewer into Your Angular App
+
+If you want to embed the viewer locally:
+
+1. Copy the Planetiler demo viewer source into your `src/assets/` directory.
+2. Load it inside your component with an `iframe` or directly inside a view.
+
+## 📦 `.mbtiles` File
+
+- The `.mbtiles` file must follow the [OpenMapTiles schema](https://openmaptiles.org/schema/).
+- You can generate it using [Planetiler](https://github.com/onthegomap/planetiler).
+
+## 📄 License
+
+This project is open-source and provided under the MIT License.
+
+Vector tiles generated from OpenStreetMap data via Planetiler are reusable under the CC-BY license:
+
+- © [OpenMapTiles](https://github.com/openmaptiles/openmaptiles/)
+- © OpenStreetMap contributors
+
+## 🙌 Acknowledgements
+
+- [OpenStreetMap](https://www.openstreetmap.org/)
+- [Planetiler](https://github.com/onthegomap/planetiler)
+- [OpenMapTiles](https://www.openmaptiles.org/)
+
+
