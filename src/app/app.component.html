@@ -1,4 +1,20 @@
-@defer (on immediate; prefetch on idle){
-    <div id="map" style="width: 100%; height: 100vh;"></div>
-}
-<!-- <router-outlet /> -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="d-flex justify-content-center">
+
+            <div class="col">
+                <a class="btn btn-success" href="/gl-mp">
+                    Go GL MAP
+                </a>
+            </div>
+            <div class="col">
+                <a class="btn btn-success" href="/plt-mp">
+                    Go GL MAP
+                </a>
+            </div>
+        </div>
+    </div>
+    @defer (on immediate; prefetch on idle){
+    <router-outlet />
+    }
+</div>

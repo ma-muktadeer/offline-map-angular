@@ -18,6 +18,8 @@
     "@angular/platform-browser": "^19.0.0",
     "@angular/platform-browser-dynamic": "^19.0.0",
     "@angular/router": "^19.0.0",
+    "@maplibre/maplibre-gl-geocoder": "^1.8.0",
+    "bootstrap": "^5.3.5",
     "compression": "^1.8.0",
     "cors": "^2.8.5",
     "express": "^5.1.0",
