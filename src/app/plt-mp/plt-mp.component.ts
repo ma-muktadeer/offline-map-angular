@@ -27,7 +27,15 @@ export class PltMpComponent {
         description: "Sample point of interest",
         type: "poi"
       }
-    }
+    },
+    {
+      coordinates: [90.3832, 22.8103],
+      properties: {
+        title: "Important Location",
+        description: "Sample point of interest",
+        type: "nai"
+      }
+    },
   ];
 
   ngOnInit(): void {
