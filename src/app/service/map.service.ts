@@ -399,16 +399,16 @@ export class MapService {
     });
 
     // if(this.map){
-      this.map.on('load', () => {
-        if (initialMarkers && initialMarkers.length) {
-          initialMarkers.forEach(markerData => {
-            this.addMarkerWithPopup(markerData.coordinates, markerData.properties);
-          });
-        }
-      });
+    this.map.on('load', () => {
+      if (initialMarkers && initialMarkers.length) {
+        initialMarkers.forEach(markerData => {
+          this.addMarkerWithPopup(markerData.coordinates, markerData.properties);
+        });
+      }
+    });
     // }
 
-     // Add click event for plotting
+    // Add click event for plotting
     //  this.map.on('click', (e) => {
     //   this.addMarker(e.lngLat);
     // });
@@ -416,95 +416,102 @@ export class MapService {
 
   addMarker(coordinates: maplibregl.LngLatLike) {
     const marker = new maplibregl.Marker({
-      draggable: true,
+      draggable: false,
       color: '#FF0000'
     })
       .setLngLat(coordinates)
       .addTo(this.map);
 
-    marker.on('dragend', () => {
-      const lngLat = marker.getLngLat();
-      console.log('Marker moved to:', lngLat);
-    });
-
     this.markers.push(marker);
     return marker;
   }
-
+  private activePopupMarker: maplibregl.Marker | null = null;
   addMarkerWithPopup(coordinates: maplibregl.LngLatLike, properties: any): maplibregl.Marker {
     // Create marker element
-    const el = document.createElement('div');
-    el.className = 'custom-marker';
-    el.innerHTML = '📍';
-    el.style.cursor = 'pointer';
+    // const el = document.createElement('div');
+    // el.className = 'custom-marker';
+    // el.innerHTML = '📍';
+    // el.style.cursor = 'pointer';
+    // el.style.fontSize = '20px';
 
     // Create popup content
+    // const popupContent = this.createPopupContent(properties);
+    // debugger
+    // // Create marker with popup
+    // const marker = new maplibregl.Marker({
+    //   // element: el,
+    //   draggable: false,
+    //   anchor: 'bottom'
+    // })
+    //   .setLngLat(coordinates)
+    //   .setPopup(new maplibregl.Popup()
+    //     .setDOMContent(popupContent))
+    //   .addTo(this.map);
+
+
     const popupContent = this.createPopupContent(properties);
-debugger
-    // Create marker with popup
+
+    // Create marker
     const marker = new maplibregl.Marker({
-      element: el,
-      draggable: false
+      // element: el,
+      draggable: false,
+      anchor: 'bottom'
     })
-      .setLngLat(coordinates)
-      .setPopup(new maplibregl.Popup()
-      .setDOMContent(popupContent))
-      .addTo(this.map);
+    .setLngLat(coordinates)
+    .setPopup(new maplibregl.Popup({ 
+      offset: 25,
+      closeOnClick: false,
+      closeButton: false,
+      className: 'custom-popup'
+    }).setDOMContent(popupContent))
+    .addTo(this.map);
+
+  // Hover functionality
+  let hideTimeout: any;
+
+  let e = marker.getElement();
+  
+  e.addEventListener('mouseenter', () => {
+    clearTimeout(hideTimeout);
+    console.log('hoveer on marker ');
+    if (this.activePopupMarker && this.activePopupMarker !== marker) {
+      this.activePopupMarker.togglePopup();
+    }
+    marker.togglePopup();
+    this.activePopupMarker = marker;
+  });
+
+  e.addEventListener('mouseleave', () => {
+    hideTimeout = setTimeout(() => {
+      if (this.activePopupMarker === marker) {
+        marker.togglePopup();
+        this.activePopupMarker = null;
+      }
+    }, 300);
+  });
 
     this.markers.push(marker);
     return marker;
 
-    // const marker = new maplibregl.Marker({
-    //   draggable: false,
-    //   // Optional: customize default marker color
-    //   color: '#3FB1CE' // Blue color similar to default MapLibre style
-    // })
-    //   .setLngLat(coordinates)
-    //   .addTo(this.map);
-
-    // // Create popup content
-    // const popupContent = this.createPopupContent(properties);
-    // const popup = new maplibregl.Popup({
-    //   offset: 25,
-    //   closeButton: false,
-    //   closeOnClick: false
-    // }).setDOMContent(popupContent);
-
-    // // Add hover interactions
-    // const markerElement = marker.getElement();
-
-    // markerElement.addEventListener('mouseenter', () => {
-    //   marker.setPopup(popup); // Set popup on hover
-    //   marker.togglePopup();   // Open popup
-    //   markerElement.style.transform = 'scale(1.1)'; // Slight zoom effect
-    // });
-
-    // markerElement.addEventListener('mouseleave', () => {
-    //   marker.togglePopup();   // Close popup
-    //   markerElement.style.transform = 'scale(1)';   // Reset scale
-    // });
-
-    // this.markers.push(marker);
-    // return marker;
   }
 
   private createPopupContent(properties: any): HTMLElement {
     const popupEl = document.createElement('div');
     popupEl.className = 'marker-popup';
-    
+
     const title = document.createElement('h3');
     title.textContent = properties.title || 'Location';
     popupEl.appendChild(title);
-    
+
     const desc = document.createElement('p');
     desc.textContent = properties.description || '';
     popupEl.appendChild(desc);
-    
+
     const type = document.createElement('div');
     type.className = 'marker-type';
     type.textContent = `Type: ${properties.type || 'unknown'}`;
     popupEl.appendChild(type);
-    
+
     return popupEl;
   }
 
